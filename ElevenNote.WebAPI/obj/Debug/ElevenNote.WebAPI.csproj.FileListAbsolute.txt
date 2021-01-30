@@ -125,3 +125,8 @@ C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\obj\Debug\Ele
 C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\obj\Debug\ElevenNote.WebAPI.pdb
 C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\Swashbuckle.Core.dll
 C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\WebActivatorEx.dll
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\Microsoft.Owin.Cors.dll
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\System.Web.Cors.dll
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\System.Web.Http.Cors.dll
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\Microsoft.Owin.Cors.xml
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.WebAPI\bin\System.Web.Http.Cors.xml
