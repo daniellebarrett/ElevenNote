@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ElevenNote.Data;
+using ElevenNote.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,10 +18,10 @@ namespace ElevenNote.Services
         }
 
         // CREATE INSTANCE OF CATEGORY
-        public bool CreateCategory (CategoryCreate model)
+        public bool CreateCategory(CategoryCreate model)
         {
             var entity =
-                new CategoryService()
+                new Category()
                 {
                     CategoryName = model.CategoryName
                 };
@@ -30,6 +32,17 @@ namespace ElevenNote.Services
             }
         }
 
+        // GET CATEGORIES
+        public IEnumerable<CategoryListItem> GetCategories()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = 
+                    ctx
+                    .Notes
+                    .Where(e => e.Ca)
+            }
+        }
     }
 }
 
