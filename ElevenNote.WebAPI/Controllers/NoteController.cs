@@ -38,15 +38,6 @@ namespace ElevenNote.WebAPI.Controllers
             var note = noteService.GetNoteById(id);
             return Ok(note);
         }
-
-        public IHttpActionResult Delete (int id)
-        {
-            var service = CreateNoteService();
-            if (!service.DeleteNote(id))
-                return InternalServerError();
-            return Ok();
-        }
-
         public IHttpActionResult Put(NoteEdit note)
         {
             if (!ModelState.IsValid)
@@ -56,6 +47,16 @@ namespace ElevenNote.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateNoteService();
+            if (!service.DeleteNote(id))
+                return InternalServerError();
+            return Ok();
+        }
+
+
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

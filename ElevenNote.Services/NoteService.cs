@@ -36,29 +36,9 @@ namespace ElevenNote.Services
             }
         }
 
-        // SEE ALL NOTES FOR SPECIFIC USER
-        public IEnumerable<NoteListItem> GetNotes()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Notes
-                        .Where(e => e.OwnerId == _userId)
-                        .Select(
-                        e =>
-                        new NoteListItem
-                        {
-                            NoteId = e.NoteId,
-                            Title = e.Title,
-                            CreatedUtc = e.CreatedUtc
-                        }
-                   );
-                return query.ToArray();
-            }
-        }
 
-        public  NoteDetail GetNoteById(int id)
+
+        public NoteDetail GetNoteById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -104,6 +84,29 @@ namespace ElevenNote.Services
                     .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
                 ctx.Notes.Remove(entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // HELPER METHOD
+        // SEE ALL NOTES FOR SPECIFIC USER
+        public IEnumerable<NoteListItem> GetNotes()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Notes
+                        .Where(e => e.OwnerId == _userId)
+                        .Select(
+                        e =>
+                        new NoteListItem
+                        {
+                            NoteId = e.NoteId,
+                            Title = e.Title,
+                            CreatedUtc = e.CreatedUtc
+                        }
+                   );
+                return query.ToArray();
             }
         }
     }

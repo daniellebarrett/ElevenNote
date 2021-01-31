@@ -17,6 +17,8 @@ namespace ElevenNote.Services
             _userId = userId;
         }
 
+
+
         // CREATE INSTANCE OF CATEGORY
         public bool CreateCategory(CategoryCreate model)
         {
@@ -32,15 +34,69 @@ namespace ElevenNote.Services
             }
         }
 
+        public CategoryDetail GetCategoryById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Categories
+                    .Single(e => e.CategoryId == id && e.OwnerId == _userId);
+                return
+                    new CategoryDetail
+                    {
+                        CategoryId = entity.CategoryId,
+                        CategoryName = entity.CategoryName
+                    };
+            }
+        }
+
+        // PUT
+       public bool UpdateCategory(CategoryEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Categories
+                    .Single(e => e.CategoryId == model.CategoryId && e.OwnerId == _userId);
+                entity.CategoryName = model.CategoryName;
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // DELETE
+        public bool DeleteCategory(int categoryId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Categories
+                    .Single(e => e.CategoryId == categoryId && e.OwnerId == _userId);
+                ctx.Categories.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // HELPER METHOD
         // GET CATEGORIES
         public IEnumerable<CategoryListItem> GetCategories()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = 
+                var query =
                     ctx
-                    .Notes
-                    .Where(e => e.Ca)
+                    .Categories
+                    .Where(e => e.OwnerId == _userId)
+                    .Select(
+                        e =>
+                        new CategoryListItem
+                        {
+                            CategoryId = e.CategoryId,
+                            CategoryName = e.CategoryName
+                        });
+                return query.ToArray();
             }
         }
     }
