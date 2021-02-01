@@ -21,8 +21,6 @@ namespace ElevenNote.WebAPI.Controllers
             if (!service.CreateNote(note))
                 return InternalServerError();
             return Ok();
-
-
         }
 
         public IHttpActionResult Get()
