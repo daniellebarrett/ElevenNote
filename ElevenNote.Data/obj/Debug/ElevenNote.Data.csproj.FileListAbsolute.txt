@@ -36,3 +36,5 @@ C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.Data\obj\Debug\Eleve
 C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.InitialCreate.resources
 C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.GenerateResource.cache
 C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.InitialMigration.resources
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.TestingMigration.resources
+C:\ElevenFiftyProjects\DotNetProjects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.TryThis.resources

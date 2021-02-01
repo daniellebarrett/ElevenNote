@@ -94,6 +94,14 @@
     <Compile Include="Migrations\202101302117443_InitialMigration.Designer.cs">
       <DependentUpon>202101302117443_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101311957162_TestingMigration.cs" />
+    <Compile Include="Migrations\202101311957162_TestingMigration.Designer.cs">
+      <DependentUpon>202101311957162_TestingMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102010117396_TryThis.cs" />
+    <Compile Include="Migrations\202102010117396_TryThis.Designer.cs">
+      <DependentUpon>202102010117396_TryThis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101302117443_InitialMigration.resx">
       <DependentUpon>202101302117443_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101311957162_TestingMigration.resx">
+      <DependentUpon>202101311957162_TestingMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102010117396_TryThis.resx">
+      <DependentUpon>202102010117396_TryThis.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

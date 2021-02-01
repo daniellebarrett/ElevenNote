@@ -26,13 +26,14 @@ namespace ElevenNote.Services
                  OwnerId = _userId,
                  Title = model.Title,
                  Content = model.Content,
+                 CategoryId = model.CategoryId,
                  CreatedUtc = DateTimeOffset.Now
              };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Notes.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -69,8 +70,9 @@ namespace ElevenNote.Services
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
+                entity.CategoryId = model.CategoryId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -83,7 +85,7 @@ namespace ElevenNote.Services
                     .Notes
                     .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
                 ctx.Notes.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -103,7 +105,8 @@ namespace ElevenNote.Services
                         {
                             NoteId = e.NoteId,
                             Title = e.Title,
-                            CreatedUtc = e.CreatedUtc
+                            CreatedUtc = e.CreatedUtc,
+                            CategoryId = e.CategoryId
                         }
                    );
                 return query.ToArray();

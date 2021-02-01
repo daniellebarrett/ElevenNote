@@ -41,7 +41,7 @@ namespace ElevenNote.Services
                 var entity =
                     ctx
                     .Categories
-                    .Single(e => e.CategoryId == id && e.OwnerId == _userId);
+                    .Single(e => e.CategoryId == id);
                 return
                     new CategoryDetail
                     {
@@ -59,8 +59,10 @@ namespace ElevenNote.Services
                 var entity =
                     ctx
                     .Categories
-                    .Single(e => e.CategoryId == model.CategoryId && e.OwnerId == _userId);
+                    .Single(e => e.CategoryId == model.CategoryId);
+
                 entity.CategoryName = model.CategoryName;
+                entity.CategoryId = model.CategoryId;
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -73,13 +75,13 @@ namespace ElevenNote.Services
                 var entity =
                     ctx
                     .Categories
-                    .Single(e => e.CategoryId == categoryId && e.OwnerId == _userId);
+                    .Single(e => e.CategoryId == categoryId);
                 ctx.Categories.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        // HELPER METHOD
+
         // GET CATEGORIES
         public IEnumerable<CategoryListItem> GetCategories()
         {
@@ -88,7 +90,6 @@ namespace ElevenNote.Services
                 var query =
                     ctx
                     .Categories
-                    .Where(e => e.OwnerId == _userId)
                     .Select(
                         e =>
                         new CategoryListItem
