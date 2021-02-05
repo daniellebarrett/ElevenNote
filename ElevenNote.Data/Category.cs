@@ -19,5 +19,6 @@ namespace ElevenNote.Data
         public string CategoryName { get; set; }
 
         //public virtual List<Note> Notes { get; set; } = new List<Note>();
+        //look into cascade delete
     }
 }
